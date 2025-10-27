@@ -50,7 +50,7 @@ fun AppBackground(content: @Composable () -> Unit) {
                 blendMode = BlendMode.SrcOver
             )
         )
-        //new check
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
