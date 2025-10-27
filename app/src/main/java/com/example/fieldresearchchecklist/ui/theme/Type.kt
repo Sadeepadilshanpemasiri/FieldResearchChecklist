@@ -15,7 +15,6 @@ val Typography = Typography(
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
-    // Used for smaller titles, like in the empty screen message
     titleMedium = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.SemiBold,
@@ -23,7 +22,6 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.15.sp
     ),
-    // Used for button text
     titleSmall = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
@@ -31,7 +29,6 @@ val Typography = Typography(
         lineHeight = 20.sp,
         letterSpacing = 0.1.sp
     ),
-    // Default text for task items
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,

@@ -40,25 +40,16 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppBackground(content: @Composable () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Layer 1 (Bottom): The Background Image
         Image(
             painter = painterResource(id = R.drawable.background_main),
             contentDescription = "App background",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize(),
-            // --- THIS IS THE NEW CODE TO ADD FOR THE TINT ---
             colorFilter = ColorFilter.tint(
-                // Use a color from your theme for a perfect match.
-                // 'primary' is the Teal color in your theme.
                 color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.09f),
-                // --- END OF CORRECTION ---
-                // This blend mode applies the color over the image.
                 blendMode = BlendMode.SrcOver
             )
-            // --- END OF NEW CODE ---
         )
-
-        // Layer 2 (Top): The App's Content with its own semi-transparent background
         Box(
             modifier = Modifier
                 .fillMaxSize()

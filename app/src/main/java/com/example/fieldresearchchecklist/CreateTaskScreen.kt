@@ -20,7 +20,7 @@ fun CreateTaskScreen(
     var taskText by remember { mutableStateOf("") }
 
     Scaffold(
-        containerColor = Color.Transparent, // Make background visible
+        containerColor = Color.Transparent,
         topBar = {
             TopAppBar(
                 title = { Text("Create New Task") },
@@ -29,15 +29,11 @@ fun CreateTaskScreen(
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
-                // --- THIS IS THE MODIFIED CODE BLOCK ---
                 colors = TopAppBarDefaults.topAppBarColors(
-                    // Set the background color to match the TaskListScreen app bar
                     containerColor = MaterialTheme.colorScheme.primary,
-                    // Set the title and icon colors to be readable on the new background
                     titleContentColor = MaterialTheme.colorScheme.onPrimary,
                     navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
                 )
-                // --- END OF MODIFICATION ---
             )
         }
     ) { innerPadding ->
@@ -52,23 +48,15 @@ fun CreateTaskScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
-                    // Color of the text itself
                     focusedTextColor = Color.White,
                     unfocusedTextColor = Color.White,
-
-                    // Color of the floating label when focused
                     focusedLabelColor = Color.White,
                     unfocusedLabelColor = Color.White.copy(alpha = 0.7f),
-
-                    // Color of the border when focused
                     focusedBorderColor = Color.White,
                     unfocusedBorderColor = Color.White.copy(alpha = 0.5f),
-
-                    // Color of the cursor
                     cursorColor = Color.White
                 )
             )
-
             Button(
                 onClick = { onSaveTask(taskText) },
                 enabled = taskText.isNotBlank(),

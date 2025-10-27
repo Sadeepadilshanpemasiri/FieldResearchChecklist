@@ -11,7 +11,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color // Make sure Color is imported
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
@@ -55,9 +55,7 @@ fun TaskListScreen(
                     text = "Your task list is empty.\nTap the '+' button to add a new task.",
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
-                    // --- THIS IS THE MODIFIED LINE ---
-                    color = Color.White // Changed from MaterialTheme.colorScheme.onBackground
-                    // --- END OF MODIFICATION ---
+                    color = Color.White
                 )
             }
         } else {

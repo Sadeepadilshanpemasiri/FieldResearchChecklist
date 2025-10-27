@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// Our new color schemes that match a nature/professional theme
+
 private val DarkColorScheme = darkColorScheme(
     primary = Teal,
     onPrimary = Cream,
@@ -21,8 +21,6 @@ private val DarkColorScheme = darkColorScheme(
     background = DarkGrey,
     onBackground = LightGrey,
     error = ErrorRed,
-    // --- ADD THIS LINE ---
-    // For dark theme, let's use the main Teal as the secondary color
     secondaryContainer = Teal
 )
 
@@ -34,8 +32,6 @@ private val LightColorScheme = lightColorScheme(
     background = Cream,
     onBackground = DarkGreen,
     error = ErrorRed,
-    // --- ADD THIS LINE ---
-    // For light theme, we will use our LightTeal color
     secondaryContainer = LightTeal
 )
 
@@ -49,12 +45,11 @@ fun FieldResearchChecklistTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = Color.Transparent.toArgb() // Make status bar transparent
-            WindowCompat.setDecorFitsSystemWindows(window, false) // Allow content to draw behind status bar
+            window.statusBarColor = Color.Transparent.toArgb()
+            WindowCompat.setDecorFitsSystemWindows(window, false)
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
-
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
