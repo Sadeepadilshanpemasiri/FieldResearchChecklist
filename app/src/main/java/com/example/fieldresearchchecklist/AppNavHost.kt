@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    tasks: MutableList<String>
+    viewModel: TaskViewModel // We now pass the ViewModel
 ) {
     NavHost(
         navController = navController,
@@ -16,28 +16,19 @@ fun AppNavHost(
     ) {
         composable(route = "task_list") {
             TaskListScreen(
-                tasks = tasks,
-                onAddTask = {
-                    navController.navigate("create_task")
-                },
-                onDeleteTask = { index ->
-                    // Remove the task from the list by its index
-                    tasks.removeAt(index)
-                }
+                tasks = viewModel.tasks,
+                onAddTask = { navController.navigate("create_task") },
+                onDeleteTask = { index -> viewModel.removeTask(index) }
             )
         }
 
         composable(route = "create_task") {
             CreateTaskScreen(
                 onSaveTask = { newTask ->
-                    if (newTask.isNotBlank()) {
-                        tasks.add(newTask)
-                    }
-                    navController.popBackStack()
+                    viewModel.addTask(newTask)
+                    navController.popBackStack() // Go back after saving
                 },
-                onBack = {
-                    navController.popBackStack()
-                }
+                onBack = { navController.popBackStack() }
             )
         }
     }
